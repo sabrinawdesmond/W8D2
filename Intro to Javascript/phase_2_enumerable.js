@@ -27,3 +27,18 @@ function twice(num){
 //   return final
 // }
 console.log(arr.myMap(twice))
+
+
+Array.prototype.myReduce = function(callback, initialValue) {
+  if (initialValue === undefined) {
+    initialValue = this[0]
+  }
+  let sum = initialValue
+  this.myEach(function(el) {
+    sum += callback(el)
+  })
+  return sum
+}
+
+console.log(arr.myReduce(twice, 10))
+
